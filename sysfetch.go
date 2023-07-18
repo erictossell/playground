@@ -8,9 +8,8 @@ import (
   "path/filepath" 
   "time"
 
-  "github.com/shirou/gopsutil/v3/cpu"
-	"github.com/shirou/gopsutil/v3/mem"
-	
+  // "github.com/shirou/gopsutil/v3/cpu"
+	// "github.com/shirou/gopsutil/v3/mem"	
 )
 
 var (
@@ -22,6 +21,8 @@ func GetTickCount() uint64 {
 	return uint64(ret)
 }
 func main() {
+  start := time.Now()
+
 	fmt.Println("\033[31m _____     _ _      ")
   fmt.Println("\033[31m|   __|___|_|_|_____")
   fmt.Println("\033[31m|   __|  _| | |     |")
@@ -54,12 +55,18 @@ func main() {
   fmt.Println("\033[32mTerminal:   WezTerm")
 
   // Get CPU usage
-	cpuPercent, _ := cpu.Percent(time.Second, false)
-  fmt.Printf("\033[33mCPU Usage: %.2f%%\n", cpuPercent[0])
+	// cpuPercent, _ := cpu.Percent(time.Second, false)
+  // fmt.Printf("\033[33mCPU Usage:  %.2f%%\n", cpuPercent[0])
 
   // Get memory usage
-	memStat, _ := mem.VirtualMemory()
-	fmt.Printf("\033[34mMemory Usage: %.2f%%\n", memStat.UsedPercent)
+	// memStat, _ := mem.VirtualMemory()
+	// fmt.Printf("\033[34mMemory Usage: 󰻠 %.2f%%\n", memStat.UsedPercent)
+
+  elapsed := time.Since(start)
+  fmt.Printf("\033[35mExecution Time: 󱎫 %s\n", elapsed)
+ 
+ 
+ 
 
 
 }
